@@ -86,3 +86,49 @@ $ git log --oneline
 bf96796 Revert "docs: add temp line for practice"
 edccdc1 docs: add temp line for practice
 ```
+
+
+## 4. git stash / git stash pop (담당:서채훈)
+
+### 문제 상황
+
+README.md를 수정한 상태에서 다른 브랜치로 이동하려고 하였다.
+
+```bash
+git checkout feature/subtract-function
+```
+
+Git은 작업 내용이 사라질 수 있으므로 브랜치 전환을 차단하였다.
+
+### 원인
+
+커밋되지 않은 변경 사항이 존재하는 상태에서 브랜치를 변경하려고 시도하였다.
+
+#### 해결 방법
+
+현재 작업 내용을 임시 보관하기 위해 stash를 사용하였다.
+
+```bash
+git stash
+```
+
+이후 브랜치 전환을 수행하였다.
+
+```bash
+git checkout feature/subtract-function
+```
+
+필요한 시점에 저장한 작업을 복원하였다.
+
+```bash
+git stash pop
+```
+
+### 결과
+
+작업 내용을 유지한 상태로 브랜치를 전환할 수 있었고, 이후 변경 사항을 정상적으로 복원하였다.
+
+#### 교훈
+
+브랜치를 이동하기 전에 커밋되지 않은 변경 사항이 있다면 `git stash`를 활용하여 안전하게 작업을 보관할 수 있다.
+
