@@ -1,6 +1,6 @@
 # Git 트러블슈팅 실습
 
-### git commit --amend 실습 (담당: 김창환)
+### 1. git commit --amend 실습 (담당: 김창환)
 저는 git commit 중 amend 옵션을 실습했습니다.
 amend는 마지막 커밋을 수정할 때 사용하는데, 대표적으로 파일을 빼먹었거나 커밋 메세지를 수정해야 할 때 사용합니다.
 
