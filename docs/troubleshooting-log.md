@@ -60,3 +60,29 @@ Date:   Mon Jun 15 16:37:20 2026 +0900
     
     refactor: multiply.py
 ```
+
+## 3. git revert 실습 (담당: 김명률)
+
+revert는 이미 원격(push)에 올라간 커밋을 되돌릴 때 사용합니다.
+reset과 달리 기존 커밋을 삭제하지 않고, 해당 변경을 취소하는 새 커밋을 추가하는 방식이라
+히스토리가 보존되고 공유 브랜치에서도 강제 push 없이 안전하게 되돌릴 수 있습니다.
+
+예를 들어 임시 커밋을 push한 뒤 이를 되돌리는 경우,
+`Before` (되돌릴 커밋이 push된 상태)
+```bash
+$ git log --oneline
+edccdc1 docs: add temp line for practice
+```
+
+`revert 실행` (반대 동작을 하는 새 커밋 생성 후 push)
+```bash
+$ git revert HEAD
+$ git push
+```
+
+`After` (원래 커밋은 남고, Revert 커밋이 추가됨)
+```bash
+$ git log --oneline
+bf96796 Revert "docs: add temp line for practice"
+edccdc1 docs: add temp line for practice
+```
