@@ -1,6 +1,2 @@
-def add(a, b):
+def add(a: int | float, b: int | float) -> int | float:
     return a + b
-
-
-if __name__ == "__main__":
-    print(add(2, 3))
