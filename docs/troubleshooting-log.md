@@ -132,3 +132,37 @@ git stash pop
 
 브랜치를 이동하기 전에 커밋되지 않은 변경 사항이 있다면 `git stash`를 활용하여 안전하게 작업을 보관할 수 있다.
 
+로그:
+* feature/add-function에서 작업을 함
+sam@yeon-eowamaeche-ui-MacBookAir-2 src % nano calculator.py 
+sam@yeon-eowamaeche-ui-MacBookAir-2 src % git checkout feature/subtract-function
+error: Your local changes to the following files would be overwritten by checkout:
+	src/calculator.py
+Please commit your changes or stash them before you switch branches.
+Aborting
+sam@yeon-eowamaeche-ui-MacBookAir-2 src % 
+sam@yeon-eowamaeche-ui-MacBookAir-2 src % git stash
+Saved working directory and index state WIP on feature/add-function: 359fdf3 refactor: store add result in variable before return
+sam@yeon-eowamaeche-ui-MacBookAir-2 src % git checkout feature/subtract-function
+Switched to branch 'feature/subtract-function'
+Your branch is ahead of 'origin/feature/subtract-function' by 6 commits.
+  (use "git push" to publish your local commits)
+sam@yeon-eowamaeche-ui-MacBookAir-2 src % git checkout feature/add-function
+Switched to branch 'feature/add-function'
+Your branch is ahead of 'origin/feature/add-function' by 1 commit.
+  (use "git push" to publish your local commits)
+sam@yeon-eowamaeche-ui-MacBookAir-2 src % git stash pop
+On branch feature/add-function
+Your branch is ahead of 'origin/feature/add-function' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   ../README.md
+	modified:   calculator.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (87c684a04d23fc35a9d22de3eabae6ab30af4f80)
+sam@yeon-eowamaeche-ui-MacBookAir-2 src % 
+
